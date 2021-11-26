@@ -11,7 +11,15 @@ fun reverse(string: String): String {
     return backwards.joinToString("")
 }
 
+fun reverse2(string: String): String {
+    return string.reversed()
+}
+
+fun reverse3(string: String): String = string.reversed()
+
 fun main() {
     val name = "Hi My name is Ali Mansour"
     println(reverse(name))
+    println(reverse2(name))
+    println(reverse3(name))
 }
