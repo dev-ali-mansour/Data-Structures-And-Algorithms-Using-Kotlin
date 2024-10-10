@@ -1,8 +1,6 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.21"
-    application
+    kotlin("jvm") version "2.0.0"
 }
 
 group = "me.ali.mansour"
@@ -17,13 +15,9 @@ dependencies {
 }
 
 tasks.test {
-    useJUnit()
+    useJUnitPlatform()
 }
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "11"
-}
-
-application {
-    mainClassName = "MainKt"
+kotlin {
+    jvmToolchain(17)
 }
