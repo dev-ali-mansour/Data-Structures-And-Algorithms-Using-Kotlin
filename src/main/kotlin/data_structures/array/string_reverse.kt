@@ -12,14 +12,27 @@ fun reverse(string: String): String {
 }
 
 fun reverse2(string: String): String {
+    var reversed = ""
+    for (i in string.length - 1 downTo 0) {
+        reversed += string[i]
+    }
+    return reversed
+}
+
+fun reverse3(string: String): String =
+    string.split("").reversed().joinToString("")
+
+fun reverse4(string: String): String {
     return string.reversed()
 }
 
-fun reverse3(string: String): String = string.reversed()
+fun reverse5(string: String): String = string.reversed()
 
 fun main() {
     val name = "Hi My name is Ali Mansour"
-    println(reverse(name))
     println(reverse2(name))
+    println(reverse(name))
     println(reverse3(name))
+    println(reverse4(name))
+    println(reverse5(name))
 }
