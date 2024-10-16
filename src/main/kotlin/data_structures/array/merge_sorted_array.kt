@@ -33,6 +33,6 @@ fun mergeSortedArrays(array1: IntArray, array2: IntArray): IntArray {
 }
 
 fun main() {
-    val array = mergeSortedArrays(intArrayOf(0, 3, 4, 31), intArrayOf(4, 6, 30))
-    print(array.joinToString(", "))
+    val mergedArray = mergeSortedArrays(intArrayOf(0, 3, 4, 31), intArrayOf(4, 6, 30))
+    print(mergedArray.contentToString())
 }
