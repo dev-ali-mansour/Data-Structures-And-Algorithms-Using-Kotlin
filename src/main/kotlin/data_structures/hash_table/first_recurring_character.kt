@@ -19,10 +19,10 @@ fun getFirstRecurringCharacter(input: IntArray): Int? {
 } // O(n^2)
 
 fun getFirstRecurringCharacterOptimized(input: IntArray): Int? {
-    val hashset = HashSet<Int>()
-    for (element in input) {
-        if (hashset.contains(element)) return element
-        hashset.add(element)
+    val map = hashMapOf<Int, Int>()
+    for (i in input.indices) {
+        if (map.contains(input[i])) return input[i]
+        map[input[i]] = i
     }
     return null
 } // O(n)
