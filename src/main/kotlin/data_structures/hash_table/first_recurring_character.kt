@@ -2,9 +2,11 @@ package data_structures.hash_table
 
 fun main() {
     println(getFirstRecurringCharacter(intArrayOf(2, 5, 1, 2, 3, 5, 1, 2, 4)))
+    println(getFirstRecurringCharacter(intArrayOf(2, 1, 1, 2, 3, 5, 1, 2, 4)))
     println(getFirstRecurringCharacter(intArrayOf()))
-    println(getFirstRecurringCharacter2(intArrayOf(2, 5, 1, 2, 3, 5, 1, 2, 4)))
-    println(getFirstRecurringCharacter2(intArrayOf()))
+    println(getFirstRecurringCharacterOptimized(intArrayOf(2, 5, 1, 2, 3, 5, 1, 2, 4)))
+    println(getFirstRecurringCharacter(intArrayOf(2, 1, 1, 2, 3, 5, 1, 2, 4)))
+    println(getFirstRecurringCharacterOptimized(intArrayOf()))
 }
 
 fun getFirstRecurringCharacter(input: IntArray): Int? {
@@ -16,7 +18,7 @@ fun getFirstRecurringCharacter(input: IntArray): Int? {
     return null
 } // O(n^2)
 
-fun getFirstRecurringCharacter2(input: IntArray): Int? {
+fun getFirstRecurringCharacterOptimized(input: IntArray): Int? {
     val hashset = HashSet<Int>()
     for (element in input) {
         if (hashset.contains(element)) return element
