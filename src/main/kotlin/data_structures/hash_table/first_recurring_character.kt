@@ -5,7 +5,7 @@ fun main() {
     println(getFirstRecurringCharacter(intArrayOf(2, 1, 1, 2, 3, 5, 1, 2, 4)))
     println(getFirstRecurringCharacter(intArrayOf()))
     println(getFirstRecurringCharacterOptimized(intArrayOf(2, 5, 1, 2, 3, 5, 1, 2, 4)))
-    println(getFirstRecurringCharacter(intArrayOf(2, 1, 1, 2, 3, 5, 1, 2, 4)))
+    println(getFirstRecurringCharacterOptimized(intArrayOf(2, 1, 1, 2, 3, 5, 1, 2, 4)))
     println(getFirstRecurringCharacterOptimized(intArrayOf()))
 }
 
