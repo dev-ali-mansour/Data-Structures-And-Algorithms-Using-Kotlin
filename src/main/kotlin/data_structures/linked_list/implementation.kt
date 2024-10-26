@@ -10,9 +10,9 @@ class MyLinkedList<T>(val value: T) {
 
     fun print() {
         print("LinkedList: [ ")
-        var tempHead = this.head
+        var tempHead = head
         while (tempHead != null) {
-            print(tempHead.value)
+            print("{ Value: ${tempHead.value}, Next: ${tempHead.next?.value} }")
             tempHead = tempHead.next
             tempHead?.let {
                 print(" --> ")
