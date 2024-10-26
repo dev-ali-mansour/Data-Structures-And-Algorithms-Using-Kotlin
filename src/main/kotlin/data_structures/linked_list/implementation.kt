@@ -13,7 +13,7 @@ class MyLinkedList<T>(val value: T) {
         var tempHead = head
         while (tempHead != null) {
             if (tempHead == head) print("Head: ")
-            if (tempHead==tail) print("Tail: ")
+            if (tempHead == tail) print("Tail: ")
             print("{ Value: ${tempHead.value}, Next: ${tempHead.next?.value} }")
             tempHead = tempHead.next
             tempHead?.let {
@@ -22,6 +22,21 @@ class MyLinkedList<T>(val value: T) {
                 println(" --> null ]")
             }
         }
+    }
+
+    override fun toString(): String {
+        val builder = StringBuilder("[")
+        var tempHead = head
+        while (tempHead != null) {
+            builder.append(tempHead.value)
+            tempHead = tempHead.next
+            tempHead?.let {
+                builder.append(", ")
+            } ?: run {
+                builder.append("]")
+            }
+        }
+        return builder.toString()
     }
 
     fun append(value: T) {
@@ -40,4 +55,5 @@ fun main() {
     myLinkedList.append(16)
 
     myLinkedList.print()
+    println(myLinkedList)
 }
