@@ -46,13 +46,18 @@ class MyLinkedList<T>(val value: T) {
         length++
     }
 
-
+    fun prepend(value: T) {
+        val newNode = Node(value = value, next = head)
+        head = newNode
+        length++
+    }
 }
 
 fun main() {
     val myLinkedList = MyLinkedList(10)
     myLinkedList.append(5)
     myLinkedList.append(16)
+    myLinkedList.prepend(1)
 
     myLinkedList.print()
     println(myLinkedList)
