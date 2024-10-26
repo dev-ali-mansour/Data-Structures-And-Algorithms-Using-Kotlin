@@ -9,14 +9,18 @@ class MyLinkedList(val value: Any) {
         private set
 
     fun print() {
-        print("LinkedList: [")
+        println("LinkedList: [")
         var tempHead = this.head
         while (tempHead != null) {
-            print(tempHead.value)
+            print("{ value: ${tempHead.value}, next: ${tempHead.next} }")
             tempHead = tempHead.next
-            tempHead?.let { print(", ") }
+            tempHead?.let {
+                println(", ")
+            } ?: run {
+                println()
+            }
         }
-        print("]")
+        println("]")
     }
 
     fun append(value: Any) {
