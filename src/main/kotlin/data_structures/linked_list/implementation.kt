@@ -85,8 +85,8 @@ class MyLinkedList<T>(value: T) {
             0 -> head = head?.next
             else -> {
                 val leader = traverseToIndex(index - 1)
-                val unWantedNode = leader?.next
-                leader?.next = unWantedNode?.next
+                val deleted = leader?.next
+                leader?.next = deleted?.next
             }
         }
         length--
@@ -99,7 +99,7 @@ fun main() {
     myLinkedList.append(16)
     myLinkedList.prepend(1)
     myLinkedList.insert(2, 99)
-
+    println(myLinkedList)
 
     myLinkedList.remove(2)
     myLinkedList.remove(2)
