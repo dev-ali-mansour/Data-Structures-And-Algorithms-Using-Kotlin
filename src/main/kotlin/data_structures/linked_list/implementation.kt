@@ -9,18 +9,18 @@ class MyLinkedList<T>(val value: T) {
         private set
 
     fun print() {
-        println("LinkedList: [")
+        print("LinkedList: [ ")
         var tempHead = this.head
         while (tempHead != null) {
-            print("{ value: ${tempHead.value}, next: ${tempHead.next} }")
+            print(tempHead.value)
             tempHead = tempHead.next
             tempHead?.let {
-                println(", ")
+                print(" --> ")
             } ?: run {
-                println()
+                print(" --> null")
             }
         }
-        println("]")
+        println(" ]")
     }
 
     fun append(value: T) {
@@ -29,6 +29,8 @@ class MyLinkedList<T>(val value: T) {
         tail = newNode
         length++
     }
+
+
 }
 
 fun main() {
