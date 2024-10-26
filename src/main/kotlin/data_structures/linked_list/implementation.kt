@@ -78,6 +78,19 @@ class MyLinkedList<T>(value: T) {
         }
     }
 
+    fun remove(index: Int) {
+        if (index < 0 || index >= length)
+            throw IndexOutOfBoundsException("Index Out Of Bounds For Length $length")
+        when (index) {
+            0 -> head = head?.next
+            else -> {
+                val leader = traverseToIndex(index - 1)
+                val unWantedNode = leader?.next
+                leader?.next = unWantedNode?.next
+            }
+        }
+        length--
+    }
 }
 
 fun main() {
@@ -87,5 +100,8 @@ fun main() {
     myLinkedList.prepend(1)
     myLinkedList.insert(2, 99)
 
+
+    myLinkedList.remove(2)
+    myLinkedList.remove(2)
     println(myLinkedList)
 }
