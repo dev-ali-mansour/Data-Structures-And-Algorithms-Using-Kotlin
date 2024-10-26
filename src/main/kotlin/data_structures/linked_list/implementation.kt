@@ -18,10 +18,19 @@ class MyLinkedList(val value: Any) {
         }
         print("]")
     }
+
+    fun append(value: Any) {
+        val newNode = Node(value = value)
+        tail?.next = newNode
+        tail = newNode
+        length++
+    }
 }
 
 fun main() {
     val myLinkedList = MyLinkedList(10)
+    myLinkedList.append(5)
+    myLinkedList.append(16)
 
     myLinkedList.print()
 }
