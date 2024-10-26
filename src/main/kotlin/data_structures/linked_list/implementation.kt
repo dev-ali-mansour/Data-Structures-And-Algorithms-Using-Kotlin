@@ -51,6 +51,32 @@ class MyLinkedList<T>(val value: T) {
         head = newNode
         length++
     }
+
+    fun traverseToIndex(index: Int): Node<T>? {
+        if (index < 0 || index > length)
+            throw IndexOutOfBoundsException("Index Out Of Bounds For Length $length")
+        var current = head
+        for (i in 0 until index) {
+            current = head?.next
+        }
+        return current
+    }
+
+    fun insert(index: Int, value: T) {
+        if (index < 0 || index > length)
+            throw IndexOutOfBoundsException("Index Out Of Bounds For Length $length")
+        when (index) {
+            0 -> prepend(value)
+            length -> append(value)
+            else -> {
+                val leader = traverseToIndex(index - 1)
+                val holdingPointer = leader?.next
+                val newNode = Node(value = value, next = holdingPointer)
+                leader?.next = newNode
+                length++
+            }
+        }
+    }
 }
 
 fun main() {
@@ -58,7 +84,7 @@ fun main() {
     myLinkedList.append(5)
     myLinkedList.append(16)
     myLinkedList.prepend(1)
+    myLinkedList.insert(2, 99)
 
-    myLinkedList.print()
     println(myLinkedList)
 }
