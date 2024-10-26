@@ -2,7 +2,7 @@ package data_structures.linked_list
 
 data class Node<T>(var value: T, var next: Node<T>? = null)
 
-class MyLinkedList<T>(val value: T) {
+class MyLinkedList<T>(value: T) {
     private var head: Node<T>? = Node(value = value)
     private var tail: Node<T>? = head
     var length: Int = 1
@@ -53,17 +53,17 @@ class MyLinkedList<T>(val value: T) {
     }
 
     fun traverseToIndex(index: Int): Node<T>? {
-        if (index < 0 || index > length)
+        if (index < 0 || index >= length)
             throw IndexOutOfBoundsException("Index Out Of Bounds For Length $length")
         var current = head
         for (i in 0 until index) {
-            current = head?.next
+            current = current?.next
         }
         return current
     }
 
     fun insert(index: Int, value: T) {
-        if (index < 0 || index > length)
+        if (index < 0 || index >= length)
             throw IndexOutOfBoundsException("Index Out Of Bounds For Length $length")
         when (index) {
             0 -> prepend(value)
@@ -77,6 +77,7 @@ class MyLinkedList<T>(val value: T) {
             }
         }
     }
+
 }
 
 fun main() {
