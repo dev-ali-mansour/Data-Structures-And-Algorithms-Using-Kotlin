@@ -1,10 +1,10 @@
 package data_structures.linked_list
 
-data class Node(var value: Any, var next: Node? = null)
+data class Node<T>(var value: T, var next: Node<T>? = null)
 
-class MyLinkedList(val value: Any) {
-    private var head: Node? = Node(value = value)
-    private var tail: Node? = head
+class MyLinkedList<T>(val value: T) {
+    private var head: Node<T>? = Node(value = value)
+    private var tail: Node<T>? = head
     var length: Int = 1
         private set
 
@@ -23,7 +23,7 @@ class MyLinkedList(val value: Any) {
         println("]")
     }
 
-    fun append(value: Any) {
+    fun append(value: T) {
         val newNode = Node(value = value)
         tail?.next = newNode
         tail = newNode
