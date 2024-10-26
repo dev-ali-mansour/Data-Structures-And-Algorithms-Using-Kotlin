@@ -12,6 +12,8 @@ class MyLinkedList<T>(val value: T) {
         print("LinkedList: [ ")
         var tempHead = head
         while (tempHead != null) {
+            if (tempHead == head) print("Head: ")
+            if (tempHead==tail) print("Tail: ")
             print("{ Value: ${tempHead.value}, Next: ${tempHead.next?.value} }")
             tempHead = tempHead.next
             tempHead?.let {
