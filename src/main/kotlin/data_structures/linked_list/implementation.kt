@@ -17,10 +17,9 @@ class MyLinkedList<T>(val value: T) {
             tempHead?.let {
                 print(" --> ")
             } ?: run {
-                print(" --> null")
+                println(" --> null ]")
             }
         }
-        println(" ]")
     }
 
     fun append(value: T) {
