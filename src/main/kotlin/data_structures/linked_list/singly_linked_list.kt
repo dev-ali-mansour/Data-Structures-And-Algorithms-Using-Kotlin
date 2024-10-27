@@ -1,5 +1,7 @@
 package data_structures.linked_list
 
+data class Node<T>(var value: T, var next: Node<T>? = null)
+
 class MyLinkedList<T>(value: T) {
     private var head: Node<T>? = Node(value = value)
     private var tail: Node<T>? = head
