@@ -1,10 +1,8 @@
-package data_structures.linked_list
-
-data class Node<T>(var value: T, var next: Node<T>? = null)
+package data_structures.linked_list.singly
 
 class MyLinkedList<T>(value: T) {
-    private var head: Node<T>? = Node(value = value)
-    private var tail: Node<T>? = head
+    var head: Node<T>? = Node(value = value)
+    var tail: Node<T>? = head
     var length: Int = 1
         private set
 
@@ -63,7 +61,7 @@ class MyLinkedList<T>(value: T) {
     }
 
     fun insert(index: Int, value: T) {
-        if (index < 0 || index >= length)
+        if (index < 0 || index > length)
             throw IndexOutOfBoundsException("Index Out Of Bounds For Length $length")
         when (index) {
             0 -> prepend(value)
@@ -104,4 +102,11 @@ fun main() {
     myLinkedList.remove(2)
     myLinkedList.remove(2)
     println(myLinkedList)
+
+
+    println("length: " + myLinkedList.length)
+    println("head value: " + myLinkedList.head?.value)
+    println("head next: " + myLinkedList.head?.next?.value)
+    println("tail value: " + myLinkedList.tail?.value)
+    println("tail.next: " + myLinkedList.tail?.next?.value)
 }
