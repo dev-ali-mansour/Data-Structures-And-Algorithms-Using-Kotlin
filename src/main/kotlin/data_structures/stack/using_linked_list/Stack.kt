@@ -5,22 +5,6 @@ class Stack<T> {
     private var bottom: Node<T>? = null
     private var length: Int = 0
 
-    override fun toString(): String {
-        if (isEmpty()) return "[]"
-        val builder = StringBuilder("[")
-        var tempTop = top
-        while (tempTop != null) {
-            builder.append(tempTop.value)
-            tempTop = tempTop.next
-            tempTop?.let {
-                builder.append(", ")
-            } ?: run {
-                builder.append("]")
-            }
-        }
-        return builder.toString()
-    }
-
     fun peek(): T? {
         return top?.value
     }
@@ -38,13 +22,14 @@ class Stack<T> {
         length++
     }
 
-    fun pop() {
-        if (length > 0) {
-            top = top?.next
-            if (top == bottom)
-                bottom = null
-        }
+    fun pop(): T? {
+        if (isEmpty()) return null
+        val first = top
+        top = top?.next
+        if (top == bottom)
+            bottom = null
         length--
+        return first?.value
     }
 
     fun isEmpty(): Boolean = length == 0
@@ -60,11 +45,9 @@ fun main() {
     myStack.push("Discord")
     println("Top Element: ${myStack.peek()}")
     println("Last Element: ${myStack.lastElement}")
-
-    println(myStack)
-
-    myStack.pop()
-    myStack.pop()
-    myStack.pop()
-    println(myStack)
+    println("====================================")
+    println(myStack.pop())
+    println(myStack.pop())
+    println(myStack.pop())
+    println(myStack.pop())
 }
