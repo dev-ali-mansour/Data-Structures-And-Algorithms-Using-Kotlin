@@ -89,6 +89,24 @@ class MyLinkedList<T>(value: T) {
         }
         length--
     }
+
+    fun reverse() {
+        if (head?.next == null) return
+
+        var first = head
+        tail = head
+        var second = first?.next
+
+        while (second != null) {
+            val temp = second.next
+            second.next = first
+            first = second
+            second = temp
+        }
+
+        head?.next = null
+        head = first
+    }
 }
 
 fun main() {
@@ -101,6 +119,8 @@ fun main() {
 
     myLinkedList.remove(2)
     myLinkedList.remove(2)
+    println(myLinkedList)
+    myLinkedList.reverse()
     println(myLinkedList)
 
 
