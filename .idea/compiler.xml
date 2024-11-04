@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="17">
+      <module name="DataStructuresAndAlgorithms" target="20" />
+      <module name="DataStructuresAndAlgorithms.main" target="20" />
+      <module name="DataStructuresAndAlgorithms.test" target="20" />
+    </bytecodeTargetLevel>
   </component>
 </project>
